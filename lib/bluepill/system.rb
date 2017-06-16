@@ -226,7 +226,7 @@ module Bluepill
       # TODO: need a mutex here
       store[:ps_axu] ||= begin
         # BSD style ps invocation
-        lines = `ps axo pid,ppid,pcpu,rss,etime,command`.split("\n")
+        lines = `/bin/ps axo pid,ppid,pcpu,rss,etime,command`.split("\n")
 
         lines.each_with_object({}) do |line, mem|
           chunks = line.split(/\s+/)
